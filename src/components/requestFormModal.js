@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import {requestAnInvite} from '../requests/api'
 import { Button, Modal, Form, Input } from 'antd';
 import BaseLine from './baseLine'
 import './components.less'
@@ -147,7 +148,7 @@ const RequestFormModal = () => {
   const handleOk = (values) => {
     setLoading(true);
     setErrorMessage('');
-    axios.post('https://l94wc2001h.execute-api.ap-southeast-2.amazonaws.com/prod/fake-auth', {
+    requestAnInvite({
       name: values.name,
       email: values.email
     }).then(() => {
